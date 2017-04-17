@@ -1,5 +1,5 @@
 export HOST_ARCH=$(uname -m)
-export HOST_OS=darwin
+export HOST_OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 export TARG_ARM=arm
 export AND_API=24
 export AND_VER=4.9

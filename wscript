@@ -35,6 +35,8 @@ def options(opt):
                    help='Do not build example plugins')
     opt.add_option('--copy-headers', action='store_true', dest='copy_headers',
                    help='Copy headers instead of linking to bundle')
+    opt.add_option('--android', action='store_true', dest='android',
+                   help='Build for android')
     opt.recurse('lv2/lv2plug.in/ns/lv2core')
 
 def configure(conf):
@@ -62,6 +64,7 @@ def configure(conf):
     conf.env.BUILD_PLUGINS = not Options.options.no_plugins
     conf.env.COPY_HEADERS  = Options.options.copy_headers
     conf.env.ONLINE_DOCS   = Options.options.online_docs
+    conf.env.ANDROID      = Options.options.android
 
     if conf.env.DOCS or conf.env.ONLINE_DOCS:
         try:
